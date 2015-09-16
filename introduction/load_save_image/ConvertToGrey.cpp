@@ -7,6 +7,13 @@
 #include <iostream>
 #include <string>
 
+using cv::Mat;
+
+// TODO(mattheard): Implement me
+Mat convertToGrey(const Mat &src) {
+    return Mat();
+}
+
 int main(int argc, char **argv) {
     using std::string;
     const int expectedNumArgs = 2;
@@ -17,11 +24,12 @@ int main(int argc, char **argv) {
         return -1;
     }
     const string filename = argv[1];
-    const cv::Mat img = cv::imread(filename);
-    if (!img.data) {
+    const Mat srcImg = cv::imread(filename);
+    if (!srcImg.data) {
         const string err = "No image data";
         std::cerr << err << std::cout;
         return -1;
     }
+    const Mat greyImg = convertToGrey(srcImg);
     return 0;
 }
