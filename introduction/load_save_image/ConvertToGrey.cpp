@@ -34,5 +34,6 @@ int main(int argc, char **argv) {
     }
     const Mat greyImg = convertToGrey(srcImg);
     const string outputFilename = "grey.jpg";
+    imwrite(outputFilename, greyImg);
     return 0;
 }
