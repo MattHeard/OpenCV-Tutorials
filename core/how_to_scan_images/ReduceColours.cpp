@@ -9,10 +9,10 @@
 
 int main(int argc, char **argv) {
     using std::string;
-    const int expectedNumArgs = 2;
+    const int expectedNumArgs = 3;
     if (argc != expectedNumArgs) {
         const string cmdName = "ConvertToGrey";
-        const string argsDesc = " <Image_Path>";
+        const string argsDesc = " <Image_Path> <Reduce_By>";
         std::cout << "Usage: " << cmdName << argsDesc << std::endl;
         return -1;
     }
