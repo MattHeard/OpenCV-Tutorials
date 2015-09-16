@@ -25,13 +25,14 @@ int main(int argc, char **argv) {
         std::cout << "Usage: " << cmdName << argsDesc << std::endl;
         return -1;
     }
-    const string filename = argv[1];
-    const Mat srcImg = cv::imread(filename);
+    const string inputFilename = argv[1];
+    const Mat srcImg = cv::imread(inputFilename);
     if (!srcImg.data) {
         const string err = "No image data";
         std::cerr << err << std::cout;
         return -1;
     }
     const Mat greyImg = convertToGrey(srcImg);
+    const string outputFilename = "grey.jpg";
     return 0;
 }
