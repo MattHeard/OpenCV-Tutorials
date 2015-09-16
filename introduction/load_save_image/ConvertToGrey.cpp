@@ -11,7 +11,10 @@ using cv::Mat;
 
 // TODO(mattheard): Implement me
 Mat convertToGrey(const Mat &src) {
-    return Mat();
+    Mat dst;
+    const int code = CV_BGR2GRAY;
+    cvtColor(src, dst, code);
+    return dst;
 }
 
 int main(int argc, char **argv) {
