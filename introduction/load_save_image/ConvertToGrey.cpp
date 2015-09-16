@@ -9,7 +9,6 @@
 
 using cv::Mat;
 
-// TODO(mattheard): Implement me
 Mat convertToGrey(const Mat &src) {
     Mat dst;
     const int code = CV_BGR2GRAY;
