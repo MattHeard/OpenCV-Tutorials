@@ -10,7 +10,15 @@
 using cv::Mat;
 
 Mat buildLookUpTable(const int divideWith) {
-    return Mat();
+    const int rows = 1;
+    const int cols = 256;
+    const int type = CV_8U;
+    const Mat table(rows, cols, type);
+    for (int i = 0; i < 256; ++i) {
+        const int reduced = divideWith * (i / divideWith);
+        table.data[i] = (uchar) reduced;
+    }
+    return table;
 }
 
 int main(int argc, char **argv) {
