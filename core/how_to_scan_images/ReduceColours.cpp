@@ -23,5 +23,10 @@ int main(int argc, char **argv) {
         std::cerr << err << std::cout;
         return -1;
     }
+    const int divideWith = atoi(argv[2]);
+    if (divideWith < 1) {
+        std::cout << "Invalid number entered for dividing." << std::endl;
+        return -1;
+    }
     return 0;
 }
