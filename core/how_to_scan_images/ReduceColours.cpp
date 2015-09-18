@@ -34,7 +34,7 @@ int main(int argc, char **argv) {
     const Mat srcImg = cv::imread(inputFilename);
     if (!srcImg.data) {
         const string err = "No image data";
-        std::cerr << err << std::cout;
+        std::cerr << err << std::endl;
         return -1;
     }
     const int divideWith = atoi(argv[2]);
