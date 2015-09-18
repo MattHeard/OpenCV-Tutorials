@@ -43,5 +43,9 @@ int main(int argc, char **argv) {
         return -1;
     }
     const Mat lookUpTable = buildLookUpTable(divideWith);
+    Mat dstImg;
+    LUT(srcImg, lookUpTable, dstImg);
+    const string outputFilename = "reduced.jpg";
+    imwrite(outputFilename, dstImg);
     return 0;
 }
