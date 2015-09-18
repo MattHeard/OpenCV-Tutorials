@@ -13,7 +13,7 @@ int main(int argc, char **argv) {
     using std::string;
     const int expectedNumArgs = 2;
     if (argc != expectedNumArgs) {
-        const string cmdName = "ConvertToGrey";
+        const string cmdName = "Sharpen";
         const string argsDesc = " <Image_Path>";
         std::cout << "Usage: " << cmdName << argsDesc << std::endl;
         return -1;
