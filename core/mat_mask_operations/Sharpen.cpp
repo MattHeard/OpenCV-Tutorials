@@ -18,12 +18,20 @@ int main(int argc, char **argv) {
         std::cout << "Usage: " << cmdName << argsDesc << std::endl;
         return -1;
     }
-    const string inputFilename = argv[1];
-    const Mat srcImg = cv::imread(inputFilename);
-    if (!srcImg.data) {
+    const string srcFilename = argv[1];
+    const Mat src = cv::imread(srcFilename);
+    if (!src.data) {
         const string err = "No image data";
         std::cerr << err << std::endl;
         return -1;
     }
+    const Mat kernel = (cv::Mat_<char>(3, 3) <<
+             0, -1,  0,
+            -1,  5, -1,
+             0, -1,  0);
+    Mat dst;
+    cv::filter2D(src, dst, src.depth(), kernel);
+    const string dstFilename = "sharpened.jpg";
+    cv::imwrite(dstFilename, dst);
     return 0;
 }
