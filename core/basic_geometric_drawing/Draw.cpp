@@ -7,6 +7,12 @@
 #include <iostream>
 #include <string>
 
+void drawAtom() {
+    const int width = 400;
+    cv::Mat atomImg = cv::Mat::zeros(width, width, CV_8UC3);
+    cv::imwrite("atom.jpg", atomImg);
+}
+
 int main(int argc, char **argv) {
     using std::string;
     using std::endl;
@@ -17,5 +23,6 @@ int main(int argc, char **argv) {
         std::cout << "Usage: " << cmdName << argsDesc << endl;
         return -1;
     }
+    drawAtom();
     return 0;
 }
