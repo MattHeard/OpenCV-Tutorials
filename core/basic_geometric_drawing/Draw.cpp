@@ -18,12 +18,14 @@ Mat drawBlankCanvas() {
     return Mat::zeros(rows, cols, type);
 }
 
+using cv::Point;
+using cv::Scalar;
+
 void drawEllipse(Mat img, const double angle) {
-    const cv::Point center(width / 2, width / 2);
+    const Point center(width / 2, width / 2);
     const cv::Size axes(width / 4, width / 16);
     const double startAngle = 0;
     const double endAngle = 360;
-    using cv::Scalar;
     const Scalar BLUE(255, 0, 0);
     const Scalar color = BLUE;
     const int thickness = 2;
@@ -41,9 +43,8 @@ void drawAtomEllipses(Mat img) {
 }
 
 void drawAtomDot(Mat img) {
-    const cv::Point center(width / 2, width / 2);
+    const Point center(width / 2, width / 2);
     const int radius = width / 32;
-    using cv::Scalar;
     const Scalar RED(0, 0, 255);
     const Scalar color = RED;
     const int FILL = -1;
@@ -58,6 +59,11 @@ void drawAtom() {
     cv::imwrite("atom.jpg", img);
 }
 
+void drawRook() {
+    Mat img = drawBlankCanvas();
+    cv::imwrite("rook.jpg", img);
+}
+
 int main(int argc, char **argv) {
     using std::string;
     using std::endl;
@@ -69,5 +75,6 @@ int main(int argc, char **argv) {
         return -1;
     }
     drawAtom();
+    drawRook();
     return 0;
 }
