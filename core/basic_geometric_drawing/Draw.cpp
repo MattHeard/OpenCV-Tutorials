@@ -7,9 +7,17 @@
 #include <iostream>
 #include <string>
 
+using cv::Mat;
+
+Mat drawBlankCanvas() {
+    const int rows = 400;
+    const int cols = 400;
+    const int type = CV_8UC3;
+    return Mat::zeros(rows, cols, type);
+}
+
 void drawAtom() {
-    const int width = 400;
-    cv::Mat atomImg = cv::Mat::zeros(width, width, CV_8UC3);
+    Mat atomImg = drawBlankCanvas();
     cv::imwrite("atom.jpg", atomImg);
 }
 
